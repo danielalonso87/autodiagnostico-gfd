@@ -8,8 +8,9 @@ CSS = """
 .gf-sim div {background:#F2F4F1; border-radius:10px; padding:10px 12px; display:flex; flex-direction:column; gap:2px; min-width:0;}
 .gf-sim span {font-size:.8rem; color:#5A6A6F;}
 .gf-sim b {font-size:1.05rem; line-height:1.3; color:#13242B; overflow-wrap:anywhere;}
-#MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {display:none !important;}
-.block-container {padding-top: 2rem; padding-bottom: 4rem; max-width: 820px;}
+#MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"],
+[data-testid="stHeader"] {display:none !important;}
+.block-container, [data-testid="stMainBlockContainer"] {padding-top: 3rem !important; padding-bottom: 4rem; max-width: 820px;}
 h1, h2, h3 {letter-spacing: -0.01em;}
 .gf-marca {display:flex; align-items:center; gap:10px; margin-bottom: .5rem;}
 .gf-marca .sel {width:36px; height:36px; border-radius:9px; background:#17675A; color:#fff;
