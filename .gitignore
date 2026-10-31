@@ -1,0 +1,14 @@
+# Segredos: NUNCA vão para o GitHub
+.streamlit/secrets.toml
+*.json
+!*.example.json
+
+# Leads gravados localmente
+dados/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
