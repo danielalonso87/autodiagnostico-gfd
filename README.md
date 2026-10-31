@@ -211,3 +211,33 @@ A nota é a média de 5 áreas, de 0 a 100 cada:
 Faixas: abaixo de 40, Crítica; de 40 a 59, Atenção; de 60 a 79, Estável; 80 ou mais, Saudável.
 
 Indicador sem dado conta como 25%, porque não saber já é um problema.
+
+---
+
+## 9. Kit para a landing page (agência)
+
+A pasta `kit-landing/` tem o mesmo diagnóstico em HTML/JavaScript, para a agência embutir direto na landing page, sem iframe. Os leads vão para a **mesma aba Leads**, com as mesmas colunas.
+
+O guia da agência é o `kit-landing/LEIAME-AGENCIA.md`. A sua parte é só esta:
+
+**9.1. Instalar o receptor de leads (Google Apps Script)**
+1. Abra a sua planilha de leads e vá em **Extensões > Apps Script**.
+2. Apague o código que estiver lá e cole todo o conteúdo de `kit-landing/apps-script/Codigo.gs`. Salve.
+3. No topo, escolha a função **testar** e clique em **Executar**. O Google vai pedir autorização: clique em "Avançado > Acessar (não seguro)". É normal, porque o script é seu.
+4. Vá em **Implantar > Nova implantação**, clique na engrenagem e escolha **App da Web**:
+   - **Executar como:** Eu
+   - **Quem pode acessar:** Qualquer pessoa
+5. Clique em **Implantar** e copie a **URL do app da Web**, que termina em `/exec`. Mande essa URL para a agência.
+
+Para conferir, abra a URL no navegador. Deve aparecer `{"ok":true,...}`.
+
+**9.2. Mandar para a agência**
+- O link do repositório no GitHub, ou a pasta `kit-landing` zipada;
+- a URL `/exec` do passo anterior.
+
+**9.3. Se mudar uma pergunta, faixa ou alerta**
+Mude nos dois lados: `diagnostico/*.py` e `kit-landing/gfd-calculos.js`. Depois rode o teste (precisa do Node.js instalado):
+```powershell
+python ferramentas\teste_paridade_js.py
+```
+Ele compara 3.000 diagnósticos aleatórios e avisa se o Python e o JavaScript divergirem.

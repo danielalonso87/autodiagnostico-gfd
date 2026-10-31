@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exemplo: diagnóstico embutido na landing</title>
+
+  <!-- 1. Estilos do diagnóstico -->
+  <link rel="stylesheet" href="gfd-diagnostico.css">
+
+  <style>
+    /* Simulação de uma landing qualquer — a agência usa o layout dela */
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #f2f4f1; color: #13242b; }
+    header, footer { background: #13242b; color: #fff; padding: 24px 16px; text-align: center; }
+    section { padding: 48px 16px; }
+
+    /* 2. (Opcional) Ajuste o diagnóstico à identidade da landing trocando as variáveis */
+    #gfd-diagnostico {
+      /* --gfd-destaque: #0b5cad; */
+      /* --gfd-fonte: "Montserrat", sans-serif; */
+    }
+  </style>
+</head>
+<body>
+  <header><strong>Gestão Financeira Descomplicada</strong> · conteúdo da landing acima</header>
+
+  <section>
+    <!-- 3. Onde o diagnóstico aparece -->
+    <div id="gfd-diagnostico"></div>
+  </section>
+
+  <footer>Conteúdo da landing abaixo</footer>
+
+  <!-- 4. Scripts (nesta ordem) -->
+  <script src="gfd-calculos.js"></script>
+  <script src="gfd-diagnostico.js"></script>
+  <script>
+    GFDDiagnostico.iniciar("#gfd-diagnostico", {
+      endpoint: "",                  // cole aqui a URL /exec do Apps Script
+      whatsapp: "5521986721336",
+      origemPadrao: "site"           // vira "google-ads", "youtube"... se a URL tiver ?origem=
+      // aoConcluir: function (resultado) { gtag('event', 'conversion', {send_to: 'AW-XXXX/YYYY'}); }
+    });
+  </script>
+</body>
+</html>
